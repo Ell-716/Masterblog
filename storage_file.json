@@ -1,20 +1,26 @@
 [
-  {
-    "id": 1,
-    "author": "John Doe",
-    "title": "First Post",
-    "content": "This is my first post."
-  },
-  {
-    "id": 2,
-    "author": "Jane Doe",
-    "title": "Second Post",
-    "content": "This is another post."
-  },
-  {
-    "id": 3,
-    "author": "Mary Leps",
-    "title": "My Post",
-    "content": "This is my post."
-  }
+    {
+        "id": 1,
+        "author": "John Doe",
+        "title": "First Post",
+        "content": "This is my first post."
+    },
+    {
+        "id": 2,
+        "author": "Jane Doe",
+        "title": "Second Post",
+        "content": "This is another post."
+    },
+    {
+        "id": 3,
+        "author": "Mary Leps",
+        "title": "My Post",
+        "content": "This is my post."
+    },
+    {
+        "id": 4,
+        "author": "Elena Fly",
+        "title": "Favorite animal",
+        "content": "My favorite animal is a dog. "
+    }
 ]
