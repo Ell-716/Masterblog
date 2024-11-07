@@ -8,6 +8,7 @@ body {
 h1 {
     text-align: center;
     color: #4F4F4F;
+    font-size: 50px;
 }
 
 .post {
@@ -26,12 +27,15 @@ h1 {
     margin: 10px 0;
 }
 
+/* Styling for post actions: Delete, Update, Like */
 .post-actions {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
 }
 
+/* Action buttons (Delete, Update) */
 .action-button {
     background-color: #007bff;
     color: white;
@@ -42,10 +46,11 @@ h1 {
     cursor: pointer;
 }
 
+/* Like form styling */
 .like-form {
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 5px;
     margin-left: auto;
 }
 
@@ -55,6 +60,8 @@ h1 {
     font-size: 20px;
     cursor: pointer;
     padding: 0;
+    color: black;
+    transition: color 0.3s;
 }
 
 .like-count {
@@ -62,3 +69,52 @@ h1 {
     font-weight: bold;
     color: black;
 }
+
+.styled-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    padding: 35px;
+    border-radius: 8px;
+}
+
+.styled-form label {
+    font-weight: bold;
+    margin-top: 15px;
+    display: block;
+    color: #333;
+}
+
+.styled-form input[type="text"],
+.styled-form textarea {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.styled-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.styled-form input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.styled-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+

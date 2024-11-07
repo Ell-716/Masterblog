@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Blog Post</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>Update Blog Post</h1>
-
-    <form action="{{ url_for('update', post_id=post.id) }}" method="POST">
+    <form action="{{ url_for('update', post_id=post.id) }}" method="POST" class="styled-form">
         <label for="author">Author:</label><br>
         <input type="text" id="author" name="author" value="{{ post['author'] }}" required><br>
 
