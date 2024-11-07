@@ -30,7 +30,8 @@ def add():
             'id': new_id,
             'author': new_author,
             'title': new_title,
-            'content': new_content
+            'content': new_content,
+            'likes': 0
         }
 
         # Append the new post to the list
@@ -100,6 +101,23 @@ def update(post_id):
         return redirect(url_for('index'))
 
     return render_template('update.html', post=post)
+
+
+@app.route('/like/<int:post_id>', methods=['POST'])
+def like_button(post_id):
+    with open("storage_file.json", "r", encoding="utf-8") as file:
+        blog_posts = json.load(file)
+
+    # Find the post by its ID and increment the 'likes' count
+    for post in blog_posts:
+        if post['id'] == post_id:
+            post['likes'] = post.get('likes', 0) + 1
+            break
+
+    with open("storage_file.json", "w", encoding="utf-8") as file:
+        json.dump(blog_posts, file, indent=4)
+
+    return redirect(url_for('index'))
 
 
 if __name__ == "__main__":
