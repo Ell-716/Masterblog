@@ -16,11 +16,5 @@
         "author": "Mary Leps",
         "title": "My Post",
         "content": "This is my post."
-    },
-    {
-        "id": 4,
-        "author": "Elena Fly",
-        "title": "Favorite animal",
-        "content": "My favorite animal is a dog. "
     }
 ]
