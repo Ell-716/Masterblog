@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "author": "John Doe",
+    "title": "First Post",
+    "content": "This is my first post."
+  },
+  {
+    "id": 2,
+    "author": "Jane Doe",
+    "title": "Second Post",
+    "content": "This is another post."
+  },
+  {
+    "id": 3,
+    "author": "Mary Leps",
+    "title": "My Post",
+    "content": "This is my post."
+  }
+]
