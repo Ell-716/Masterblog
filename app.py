@@ -6,6 +6,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    """
+    Renders the home page and displays all the blog posts.
+    Reads the blog posts from the JSON storage file and passes them to the
+    'index.html' template for rendering. Displays the list of posts with
+    options to add, update, delete, and like the posts.
+    Returns:
+        Rendered template of the home page with the list of blog posts.
+    """
     with open("storage_file.json", "r", encoding="utf-8") as file:
         blog_posts = json.load(file)
         return render_template("index.html", posts=blog_posts)
@@ -13,6 +21,16 @@ def index():
 
 @app.route("/add", methods=["GET", "POST"])
 def add():
+    """
+    Handles the creation of a new blog post.
+    If the request method is POST, it collects the form data (author, title,
+    and content), generates a new post ID, adds the new post to the list of
+    blog posts, and saves the updated list back to the JSON storage file.
+    Redirects back to the home page after successful post creation.
+    Returns:
+        Rendered template of the form to add a new blog post if the method
+        is GET, or a redirect to the home page after a successful POST.
+    """
     if request.method == "POST":
         new_author = request.form.get("author")
         new_title = request.form.get("title")
@@ -49,6 +67,15 @@ def add():
 
 @app.route('/delete/<int:post_id>')
 def delete(post_id):
+    """
+    Handles the deletion of a blog post.
+    This route removes the blog post with the specified post_id from the JSON
+    storage file and redirects back to the home page.
+    Args:
+        post_id (int): The ID of the post to be deleted.
+    Returns:
+        A redirect to the home page after the post has been deleted.
+    """
     # Load current blog posts from JSON
     with open("storage_file.json", "r", encoding="utf-8") as file:
         blog_posts = json.load(file)
@@ -65,6 +92,17 @@ def delete(post_id):
 
 
 def fetch_post_by_id(post_id):
+    """
+    Fetches a blog post by its ID from the JSON storage file.
+    This helper function retrieves a post and the full list of blog posts
+    from the JSON file based on the given post_id.
+    Args:
+        post_id (int): The ID of the post to retrieve.
+    Returns:
+        tuple: A tuple containing the post (if found) and the full list of
+               blog posts. If the post is not found, returns None and the
+               full list of blog posts.
+    """
     with open("storage_file.json", "r", encoding="utf-8") as file:
         blog_posts = json.load(file)
 
@@ -77,6 +115,17 @@ def fetch_post_by_id(post_id):
 
 @app.route("/update/<int:post_id>", methods=["GET", "POST"])
 def update(post_id):
+    """
+    Handles the update of an existing blog post.
+    If the request method is POST, the function updates the post's author,
+    title, and content with the new values from the form and saves the updated
+    post list to the JSON file. Redirects back to the home page after successful update.
+    Args:
+        post_id (int): The ID of the post to update.
+    Returns:
+        Rendered template for the update form if the method is GET, or a
+        redirect to the home page after a successful POST.
+    """
     post, blog_posts = fetch_post_by_id(post_id)
 
     if post is None:
@@ -105,6 +154,15 @@ def update(post_id):
 
 @app.route('/like/<int:post_id>', methods=['POST'])
 def like_button(post_id):
+    """
+    Handles the liking of a blog post.
+    This route increments the 'likes' count for the blog post with the
+    specified post_id in the JSON storage file and redirects back to the home page.
+    Args:
+        post_id (int): The ID of the post to be liked.
+    Returns:
+        A redirect to the home page after the like count has been updated.
+    """
     with open("storage_file.json", "r", encoding="utf-8") as file:
         blog_posts = json.load(file)
 
