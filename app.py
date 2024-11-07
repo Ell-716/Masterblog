@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    with open("storage_file.json", "r") as file:
+    with open("storage_file.json", "r", encoding="utf-8") as file:
         blog_posts = json.load(file)
         return render_template('index.html', posts=blog_posts)
 
